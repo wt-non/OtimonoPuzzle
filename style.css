@@ -1,0 +1,147 @@
+body {
+  background: #111;
+  color: white;
+  font-family: sans-serif;
+}
+
+#game-container {
+  display: flex; /* 横並び */
+  justify-content: center;
+  gap: 50px; /* 盤面とNEXTの間隔 */
+  margin: 20px auto;
+  width: fit-content;
+}
+
+#board {
+  display: grid;
+  grid-template-columns: repeat(6, 36px); /* 6列固定 */
+  grid-template-rows: repeat(12, 36px);
+  width: 216px; /* 6列 × 36px */
+  height: 432px; /* 12行 × 36px */
+  background:
+    linear-gradient(to right, #555 1px, transparent 1px),
+    linear-gradient(to bottom, #555 1px, transparent 1px), #222;
+  background-size: 36px 36px;
+  border: 3px solid #555;
+  margin: 20px auto;
+}
+
+#next {
+  display: flex;
+  flex-direction: column; /* NEXTを縦に積む */
+  gap: 8px; /* NEXT同士の間隔 */
+  background: #222;
+  border: 3px solid #555;
+  padding: 8px;
+}
+
+#next .pair {
+  display: grid;
+  grid-template-rows: 36px 36px; /* 上下の玉2つの高さ */
+  width: 36px; /* 幅を盤面セルと同じに固定 */
+  /* gap: 2px; */
+}
+
+#next .pair .cell {
+  width: 36px; /* 盤面セルと同じ */
+  height: 36px;
+}
+
+.cell {
+  width: 36px;
+  height: 36px;
+}
+
+.c0 {
+  background: transparent; /* グリッドが見えるように透明にする */
+}
+.c1,
+.c11 {
+  background: red;
+}
+.c2,
+.c12 {
+  background: gold;
+}
+.c3,
+.c13 {
+  background: blue;
+}
+.c4,
+.c14 {
+  background: green;
+}
+.c5,
+.c15 {
+  background: purple;
+}
+
+/*枠付き*/
+.small,
+.c11,
+.c12,
+.c13,
+.c14,
+.c15 {
+  border: 3px solid white;
+  box-sizing: border-box;
+}
+
+.ghost {
+  opacity: 0.5;
+}
+
+#overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+#overlay.hidden {
+  display: none;
+}
+
+.gameover {
+  text-align: center;
+}
+
+.gameover h1 {
+  font-size: 48px;
+  margin-bottom: 12px;
+}
+
+.gameover p {
+  color: #ccc;
+}
+
+#overlay {
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+#ui {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+#score-label {
+  font-size: 14px;
+  color: #666;
+}
+
+#score {
+  font-size: 28px;
+  font-weight: bold;
+}

@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ぱずるだま</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1 style="text-align: center">落ち物パズル</h1>
+    <div id="game-container">
+      <div id="ui">
+        <div id="score-label">SCORE</div>
+        <div id="score">0</div>
+      </div>
+
+      <div id="board"></div>
+      <!-- 盤面 -->
+
+      <div id="next"></div>
+      <!-- NEXT表示 -->
+    </div>
+
+    <div id="overlay" class="hidden">
+      <div class="gameover">
+        <h1>GAME OVER</h1>
+        <p>Press R to Restart</p>
+      </div>
+    </div>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>
